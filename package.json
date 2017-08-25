@@ -1,22 +1,22 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "goocal",
+  "version": "0.0.1",
+  "description": "Google Calendar wrapper for desktop",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . Goocal --platform=darwin --arch=x64 --icon \"src/assets/app-icon.icns\" --out dist"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/lightheaded/goocal",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Google",
+    "calendar",
+    "wrapper"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "Toomas Välja <toomas.valja@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-packager": "^9.0.0"
   }
 }

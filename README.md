@@ -1,4 +1,26 @@
-# electron-quick-start
+# Goocal
+
+Google Calendar wrapper application. 
+
+## Running 
+
+To start the app in development mode
+```bash
+npm start
+```
+
+
+## Packaging
+
+To package the application
+```bash
+npm run package
+```
+
+The rest of Readme is TODO
+
+
+# electron-quick-start readme
 
 **Clone and run for a quick way to see Electron in action.**
 
