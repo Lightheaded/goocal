@@ -57,10 +57,17 @@ function createMenus() {
 function createTrayIcon() {
   const iconPath = `${__dirname}/src/assets/icon/goocal-icon.png`;
   Jimp.read(iconPath)
-      .then(generateIcon);
+      .then(img => {
+        Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+            .then(font => img.print(font, 0, 0, '31'));
+        return img;
+      })
+      .then(generateIcon)
+      .catch(e => console.log('Error loading app icon', e));
 }
 
 function generateIcon(img) {
+  // img.print(Jimp.FONT_SANS_32_WHITE, 0, 0, '31');
   img.getBuffer(Jimp.MIME_PNG, (_, imageBuffer) => {
     const icon = nativeImage.createFromBuffer(imageBuffer);
     if(app) {
