@@ -1,6 +1,12 @@
 'use strict';
 
-const {app, BrowserWindow, Menu} = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  nativeImage
+} = require('electron');
+const Jimp = require('jimp');
 
 const url = require('url');
 
@@ -48,6 +54,21 @@ function createMenus() {
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
+function createTrayIcon() {
+  const iconPath = `${__dirname}/src/assets/icon/goocal-icon.png`;
+  Jimp.read(iconPath)
+      .then(generateIcon);
+}
+
+function generateIcon(img) {
+  img.getBuffer(Jimp.MIME_PNG, (_, imageBuffer) => {
+    const icon = nativeImage.createFromBuffer(imageBuffer);
+    if(app) {
+      app.dock.setIcon(icon);
+    }
+  });
+}
+
 function createWindow() {
   mainWindow = new BrowserWindow({width: 1200, height: 800});
   mainWindow.loadURL(
@@ -71,6 +92,8 @@ function createWindow() {
   });
 
   createMenus();
+
+  createTrayIcon();
 }
 
 function closeApp() {
@@ -92,10 +115,6 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit();
   }
-});
-
-app.on('quit', e => {
-  console.log('quitting', e);
 });
 
 app.on('activate', function () {
