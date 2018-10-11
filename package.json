@@ -1,6 +1,6 @@
 {
   "name": "goocal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Google Calendar wrapper for desktop",
   "main": "main.js",
   "scripts": {
