@@ -16,7 +16,7 @@
   "author": "Toomas Välja <toomas.valja@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "electron": "3.0.3",
-    "electron-packager": "^12.2.0"
+    "electron": "4.0.2",
+    "electron-packager": "^13.0.1"
   }
 }
